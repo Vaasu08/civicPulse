@@ -8,7 +8,7 @@ budget data on an H3 hexagon grid, detects statistically significant **demand ho
 tamper-evident ledger.
 
 > **Zero paid services. Zero Docker. Zero API keys required.** `npm install && npm run dev` gives you the full platform,
-> with 5 Indian pilot cities and ~18,000 synthetic multilingual citizen requests. Free-tier AI (Groq, Gemini) and
+> with 5 Indian pilot cities and ~18,000 synthetic multilingual citizen requests. Free-tier AI (Google Gemini) and
 > infrastructure (Supabase, Telegram) are optional upgrades.
 
 ## Quick start
@@ -51,7 +51,7 @@ Other commands: `npm test` (56 unit + integration tests), `npm run typecheck`, `
 | 📊 **Explainable scoring** | `100 × (wD·D + wG·G + wP·P + wV·V) × (1 − α·F)`. Every component is shown per cell, and the weights are editable with a live ranking preview |
 | 🔥 **Hotspots** | Getis-Ord Gi* with conditional permutations on k-ring contiguity; Poisson-test **emerging** hotspots |
 | 🎯 **Recommendations** | Contiguous hotspot areas → ranked projects with RAG policy briefs. **Every number in a brief is verified** against its evidence |
-| 🤖 **Ask CivicPulse** | Tool-calling policy copilot (Groq/Gemini, with offline routing) that can only answer from analytics tools |
+| 🤖 **Ask CivicPulse** | Tool-calling policy copilot (Google Gemini, with offline routing) that can only answer from analytics tools |
 | 💰 **Budget** | Demand-vs-investment alignment + **optimizer** (people reached per $ with an equity floor) vs the current plan |
 | 📈 **Impact & foresight** | Difference-in-differences for completed projects; 3-month seasonal forecasts |
 | 🤝 **City federation** | k-anonymous, HMAC-signed aggregates. Raw data never leaves a city/state instance |
@@ -78,8 +78,8 @@ Data: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) · Original brief: [docs/SPEC
 
 Copy `.env.example` to `.env.local`:
 
-- `GROQ_API_KEY`: Whisper-large-v3 speech-to-text + Llama 3.3 70B for extraction, translation, briefs and the copilot.
-- `GEMINI_API_KEY`: automatic fallback for all of the above, plus audio understanding.
+- `GEMINI_API_KEY`: Google Gemini 2.5 Flash for high-speed multi-modal ingestion, structured extraction, translation, briefs, and the copilot.
+- `GROQ_API_KEY`: Optional open-source fallback for text inference and transcription.
 - `TELEGRAM_BOT_TOKEN`: the bot starts in polling mode automatically. No public URL needed.
 - `DATABASE_URL` + `NEXT_PUBLIC_SUPABASE_*`: move from embedded PGlite to Supabase and get cross-instance realtime.
 
